@@ -42,14 +42,11 @@ function PoliticiansTable(props: any) {
       key: "n",
       dataIndex: "n",
       title: "N°",
-      responsive: ["xl", "lg", "md", "sm", "xs"],
-      width: "4rem",
     },
     {
       key: "fullName",
       dataIndex: "fullName",
       title: "Nombre",
-      responsive: ["xl", "lg", "md", "sm", "xs"],
       width: "15rem",
       render: CellToolTip,
     },
@@ -58,7 +55,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "gender",
       title: "Género",
       responsive: ["xl", "lg", "md", "sm"],
-      width: "10rem",
+      width: "5rem",
       render: CellGenderTag,
     },
     {
@@ -74,7 +71,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "partyFilter",
       title: "Partido",
       responsive: ["xl", "lg", "md", "sm"],
-      width: "10rem",
+      width: "8rem",
       render: (value: string, record: PoliticianRow) => (
         <Tooltip placement="top" title={value}>
           {record.party}
@@ -85,7 +82,7 @@ function PoliticiansTable(props: any) {
       key: "community",
       dataIndex: "community",
       title: "CCAA",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["xl", "lg"],
       width: "10rem",
       render: CellToolTip,
     },
@@ -93,7 +90,7 @@ function PoliticiansTable(props: any) {
       key: "institution",
       dataIndex: "institution",
       title: "Institución",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["xl", "lg"],
       width: "10rem",
       render: CellToolTip,
     },
@@ -102,7 +99,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "baseSalary",
       title: "Sueldo Base",
       responsive: ["xl", "lg", "md"],
-      width: "10rem",
+      width: "8rem",
       render: formatCurrency,
     },
     {
@@ -114,29 +111,44 @@ function PoliticiansTable(props: any) {
       render: formatCurrency,
     },
     {
-      title: "Opciones",
-      key: "action",
-      responsive: ["xl"],
+      title: <EditOutlined />,
+      key: "mobileAction",
+      responsive: ["xs"],
       render: (_: any, record: Politician) => (
         <Button.Group>
           <Button
             type="primary"
+            shape="circle"
+            icon={<EditOutlined />}
+            size="small"
+            onClick={() => editHandler(record.id)}
+          />
+        </Button.Group>
+      ),
+    },
+    {
+      title: "Opciones",
+      key: "action",
+      responsive: ["sm", "md", "lg", "xl", "xxl"],
+      render: (_: any, record: Politician) => (
+        <Button.Group>
+          <Button
+            type="primary"
+            shape="circle"
             color="red"
             icon={<EditOutlined />}
             size="small"
             onClick={() => editHandler(record.id)}
-          >
-            Editar
-          </Button>
+          />
           <Button
+            danger
             type="primary"
+            shape="circle"
             color="red"
             icon={<DeleteOutlined />}
             size="small"
             onClick={() => deleteHandler(record.id)}
-          >
-            Borrar
-          </Button>
+          />
         </Button.Group>
       ),
     },

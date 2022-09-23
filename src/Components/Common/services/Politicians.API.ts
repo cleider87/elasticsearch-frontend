@@ -3,6 +3,8 @@ import { GetPoliticianResponse } from "../interfaces/GetPoliticianResponse.inter
 import { GetPoliticiansQuery } from "../../Politicians/GetPoliticiansQuery.interface";
 import { Politician } from "../interfaces/Politician.interface";
 
+const baseURL = process.env.API || "http://localhost:3001";
+
 export function getPoliticians(
   query: GetPoliticiansQuery
 ): Promise<GetPoliticianResponse> {
@@ -15,7 +17,7 @@ export function getPoliticians(
             .filter(Boolean)
             .join("&"),
         {
-          baseURL: "http://localhost:3001",
+          baseURL,
         }
       )
       .then((result) => resolve(result.data as GetPoliticianResponse))
@@ -42,8 +44,29 @@ export function deletePoliticianById(id: string): Promise<any> {
   return new Promise((resolve, reject) => {
     axios
       .delete(`/api/politicians/${id}`, {
-        baseURL: "http://localhost:3001",
+        baseURL,
       })
+      .then((result) => resolve(result.data))
+      .catch((e) => {
+        reject(new Error(`API error:${e}`));
+      });
+  });
+}
+
+export function uploadPoliticiansData(formData: FormData): Promise<any> {
+  return new Promise((resolve, reject) => {
+    console.log(formData)
+    axios
+      .post(
+        `/api/bulk`,
+        formData,
+        {
+          baseURL,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      )
       .then((result) => resolve(result.data))
       .catch((e) => {
         reject(new Error(`API error:${e}`));
@@ -58,7 +81,7 @@ export function updatePoliticianById(
   return new Promise((resolve, reject) => {
     axios
       .patch(`/api/politicians/${id}`, politician, {
-        baseURL: "http://localhost:3001",
+        baseURL,
       })
       .then((result) => resolve(result.data))
       .catch((e) => {
@@ -71,7 +94,7 @@ export function getStatistics(): Promise<any> {
   return new Promise((resolve, reject) => {
     axios
       .get(`/api/statistics`, {
-        baseURL: "http://localhost:3001",
+        baseURL,
       })
       .then((result) => resolve(result.data))
       .catch((e) => {
@@ -84,7 +107,7 @@ export function getParties(): Promise<string[]> {
   return new Promise((resolve, reject) => {
     axios
       .get(`/api/statistics/parties`, {
-        baseURL: "http://localhost:3001",
+        baseURL,
       })
       .then((result) =>
         resolve(result.data.map((party: { key: string }) => party.key))
