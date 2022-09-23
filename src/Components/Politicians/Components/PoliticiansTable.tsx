@@ -84,7 +84,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "community",
       title: "CCAA",
       responsive: ["xl", "lg"],
-      width: "15rem",
+      width: "11rem",
       render: CellToolTip,
     },
     {
@@ -92,7 +92,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "institution",
       title: "Institución",
       responsive: ["xl", "lg"],
-      width: "20rem",
+      width: "11rem",
       render: CellToolTip,
     },
     {

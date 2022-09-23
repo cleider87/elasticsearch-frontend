@@ -55,7 +55,6 @@ export function deletePoliticianById(id: string): Promise<any> {
 
 export function uploadPoliticiansData(formData: FormData): Promise<any> {
   return new Promise((resolve) => {
-    console.log(formData)
     axios
       .post(
         `/api/bulk`,
