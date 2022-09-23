@@ -9,7 +9,7 @@ function PoliticiansStatistics(props: any) {
         <Statistic
           title="Promedio de Sueldo Base"
           value={formatNumber(
-            statistics && statistics.length > 0 ? statistics.statistics?.avg : 0
+            statistics.statistics?.avg ? statistics.statistics.avg : 0
           )}
           precision={2}
           formatter={(val) => `${val} €`}
@@ -19,9 +19,7 @@ function PoliticiansStatistics(props: any) {
         <Statistic
           title="Mediana de Sueldo Base"
           value={formatNumber(
-            statistics && statistics.length > 0
-              ? statistics.statistics?.median
-              : 0
+            statistics.statistics?.median ? statistics.statistics.median : 0
           )}
           precision={2}
           formatter={(val) => `${val} €`}

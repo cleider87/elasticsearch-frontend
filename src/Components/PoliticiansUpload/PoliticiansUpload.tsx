@@ -1,12 +1,15 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Form, Button, Input } from "antd";
+import { useNavigate } from "react-router-dom";
 import { uploadPoliticiansData } from "../Common/services/Politicians.API";
 
 function PoliticianUpload() {
   const formData = new FormData();
+  let navigate = useNavigate();
 
   const sendFile = async (e: any) => {
-    uploadPoliticiansData(formData);
+    await uploadPoliticiansData(formData);
+    navigate("/");
   };
 
   const loadFile = async (event: any) => {
