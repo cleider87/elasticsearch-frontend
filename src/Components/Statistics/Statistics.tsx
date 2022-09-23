@@ -33,14 +33,12 @@ function Statistics() {
       key: "n",
       dataIndex: "n",
       title: "N°",
-      responsive: ["xl", "lg", "md", "sm", "xs"],
       width: "4rem",
     },
     {
       key: "fullName",
       dataIndex: "fullName",
       title: "Nombre",
-      responsive: ["xl", "lg", "md", "sm", "xs"],
       width: "15rem",
       render: CellToolTip,
     },
@@ -48,14 +46,14 @@ function Statistics() {
       key: "gender",
       dataIndex: "gender",
       title: "Género",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["md", "lg", "xl", "xxl"],
       width: "10rem",
     },
     {
       key: "community",
       dataIndex: "community",
       title: "CCAA",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["md", "lg","xl", "xxl"],
       width: "10rem",
       render: CellToolTip,
     },
@@ -63,7 +61,7 @@ function Statistics() {
       key: "baseSalary",
       dataIndex: "baseSalary",
       title: "Sueldo Base",
-      responsive: ["xl", "lg", "md"],
+      responsive: ["md", "lg", "xl", "xxl"],
       width: "10rem",
       render: formatCurrency,
     },
@@ -81,6 +79,7 @@ function Statistics() {
           })
         )}
         columns={columns}
+        pagination={false}
       />
     </div>
   );

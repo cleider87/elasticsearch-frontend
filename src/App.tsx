@@ -1,8 +1,9 @@
 import { Menu } from "antd";
 import Layout, { Content, Footer, Header } from "antd/lib/layout/layout";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import PoliticianEditor from "./Components/Politician/Politician";
+import PoliticianEditor from "./Components/PoliticianEditor/PoliticianEditor";
 import Politicians from "./Components/Politicians/Politicians";
+import PoliticianUpload from "./Components/PoliticiansUpload/PoliticiansUpload";
 import Statistics from "./Components/Statistics/Statistics";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={["0"]}
             items={[
               {
                 key: "0",
@@ -32,6 +33,13 @@ function App() {
                   navigate(`/politicians`);
                 },
               },
+              {
+                key: "2",
+                label: `Cargar Datos`,
+                onClick: () => {
+                  navigate(`/upload`);
+                },
+              },
             ]}
           />
         </Header>
@@ -41,9 +49,10 @@ function App() {
             style={{ padding: 24, minHeight: 360 }}
           >
             <Routes>
-              <Route path="/" element={<Statistics />} />
-              <Route path="politicians" element={<Politicians />}></Route>
               <Route path="politicians/:id" element={<PoliticianEditor />} />
+              <Route path="politicians" element={<Politicians />}></Route>
+              <Route path="upload" element={<PoliticianUpload />} />
+              <Route path="/" element={<Statistics />} />
             </Routes>
           </div>
         </Content>
