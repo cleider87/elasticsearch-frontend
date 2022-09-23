@@ -23,6 +23,9 @@ function Statistics() {
       getStatistics().then((response) => {
         setStatistics(response);
         setStatisticsLoaded(true);
+      }).catch(e=>{
+        console.log(e.message)
+        console.log("TODO: report this")
       });
     }
   }, [statistics, statisticsLoaded]);

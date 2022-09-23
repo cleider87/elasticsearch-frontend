@@ -42,6 +42,7 @@ function PoliticiansTable(props: any) {
       key: "n",
       dataIndex: "n",
       title: "N°",
+      width: "4rem",
     },
     {
       key: "fullName",
@@ -70,7 +71,7 @@ function PoliticiansTable(props: any) {
       key: "partyFilter",
       dataIndex: "partyFilter",
       title: "Partido",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["xl", "lg", "md"],
       width: "8rem",
       render: (value: string, record: PoliticianRow) => (
         <Tooltip placement="top" title={value}>
@@ -83,7 +84,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "community",
       title: "CCAA",
       responsive: ["xl", "lg"],
-      width: "10rem",
+      width: "11rem",
       render: CellToolTip,
     },
     {
@@ -91,7 +92,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "institution",
       title: "Institución",
       responsive: ["xl", "lg"],
-      width: "10rem",
+      width: "11rem",
       render: CellToolTip,
     },
     {

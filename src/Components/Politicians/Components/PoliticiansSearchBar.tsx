@@ -22,7 +22,7 @@ function PoliticiansSearchBar(props: any) {
     <div className="site-layout-background" style={{ margin: 10 }}>
       <Input.Group size="large">
         <Row justify="center" gutter={[8,8]}>
-          <Col xs={24} sm={24} md={6} lg={8}>
+          <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6} >
             <Input
               allowClear
               placeholder="Filtrar por nombre"
@@ -38,7 +38,7 @@ function PoliticiansSearchBar(props: any) {
               onPressEnter={requestSearch}
             />
           </Col>
-          <Col xs={24} sm={24} md={6} lg={8}>
+          <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6} >
             <AutoComplete
               style={{ width: "100%" }}
               allowClear
@@ -60,7 +60,7 @@ function PoliticiansSearchBar(props: any) {
               }}
             />
           </Col>
-          <Col xs={24} sm={24} md={6} lg={8} >
+          <Col xs={24} sm={24} md={6} lg={6} xl={6} xxl={6} >
             <Select
               size="large"
               style={{ width: "100%" }}
@@ -75,7 +75,7 @@ function PoliticiansSearchBar(props: any) {
               <Select.Option value="hombre">Hombre</Select.Option>
             </Select>
           </Col>
-          <Col xs={24} sm={24} md={4} lg={2}>
+          <Col xs={24} sm={24} md={4} lg={2} xl={2} xxl={2} >
             <Tooltip title="Buscar">
               <Button
                 size="large"
