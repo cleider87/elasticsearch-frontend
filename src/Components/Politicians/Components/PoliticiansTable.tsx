@@ -42,6 +42,7 @@ function PoliticiansTable(props: any) {
       key: "n",
       dataIndex: "n",
       title: "N°",
+      width: "4rem",
     },
     {
       key: "fullName",
@@ -83,7 +84,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "community",
       title: "CCAA",
       responsive: ["xl", "lg"],
-      width: "10rem",
+      width: "15rem",
       render: CellToolTip,
     },
     {
@@ -91,7 +92,7 @@ function PoliticiansTable(props: any) {
       dataIndex: "institution",
       title: "Institución",
       responsive: ["xl", "lg"],
-      width: "10rem",
+      width: "20rem",
       render: CellToolTip,
     },
     {
