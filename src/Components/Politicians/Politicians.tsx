@@ -39,6 +39,9 @@ function Politicians() {
         setPoliticians(politicians);
         setTotal(response.meta.itemCount);
         setLoaded(true);
+      }).catch(e=>{
+        console.log(e.message)
+        console.log("TODO: manage this")
       });
     }
   });
