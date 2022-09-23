@@ -54,7 +54,7 @@ export function deletePoliticianById(id: string): Promise<any> {
 }
 
 export function uploadPoliticiansData(formData: FormData): Promise<any> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     console.log(formData)
     axios
       .post(
@@ -68,8 +68,9 @@ export function uploadPoliticiansData(formData: FormData): Promise<any> {
         }
       )
       .then((result) => resolve(result.data))
-      .catch((e) => {
-        reject(new Error(`API error:${e}`));
+      .catch(e=>{
+        console.log(e.message)
+        console.log("TODO: manage this")
       });
   });
 }
@@ -96,10 +97,7 @@ export function getStatistics(): Promise<any> {
       .get(`/api/statistics`, {
         baseURL,
       })
-      .then((result) => resolve(result.data))
-      .catch((e) => {
-        reject(new Error(`API error:${e}`));
-      });
+      .then((result) => resolve(result.data));
   });
 }
 

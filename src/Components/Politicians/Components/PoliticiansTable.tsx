@@ -70,7 +70,7 @@ function PoliticiansTable(props: any) {
       key: "partyFilter",
       dataIndex: "partyFilter",
       title: "Partido",
-      responsive: ["xl", "lg", "md", "sm"],
+      responsive: ["xl", "lg", "md"],
       width: "8rem",
       render: (value: string, record: PoliticianRow) => (
         <Tooltip placement="top" title={value}>

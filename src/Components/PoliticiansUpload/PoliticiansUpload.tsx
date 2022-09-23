@@ -12,7 +12,6 @@ function PoliticianUpload() {
   const loadFile = async (event: any) => {
     if (event.target.files && event.target.files[0]) {
       const file: File = event.target.files[0];
-      console.log(file);
       formData.append("file", file, file.name);
     }
   };
